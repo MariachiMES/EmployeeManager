@@ -1,2 +1,2 @@
-# EmployeeManager
-EmployeeManager
+# EmpManage
+Employee Management System
