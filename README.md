@@ -1,5 +1,7 @@
 ![GitHub license](https://img.shields.io/badge/license--blue.svg)
 
+# [VIDEO] (https://watch.screencastify.com/v/sJLMOEj3Wbu61FTGmoR2_)
+
 # Node Employee Manager
 
 # Description
