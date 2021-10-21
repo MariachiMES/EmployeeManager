@@ -4,15 +4,12 @@ const mysql = require("mysql2");
 require("console.table");
 require("dotenv").config();
 
-const db = mysql.createConnection(
-  {
-    host: "localhost",
-    user: process.env.EMP_USER,
-    password: process.env.MYSQL_PASS,
-    database: process.env.EMP_DB,
-  },
-  console.log(`Connected to the employee_db database.`)
-);
+const db = mysql.createConnection({
+  host: "localhost",
+  user: process.env.EMP_USER,
+  password: process.env.MYSQL_PASS,
+  database: process.env.EMP_DB,
+});
 
 const title = ` ______ __  __ _____  _      ______     ________ ______   __  __          _   _          _____ ______ _____  
             |  ____|  \/  |  __ \| |    / __ \ \   / /  ____|  ____| |  \/  |   /\   | \ | |   /\   / ____|  ____|  __ \ 
@@ -21,7 +18,7 @@ const title = ` ______ __  __ _____  _      ______     ________ ______   __  __ 
             | |____| |  | | |    | |___| |__| | | |  | |____| |____  | |  | |/ ____ \| |\  |/ ____ \ |__| | |____| | \ \ 
             |______|_|  |_|_|    |______\____/  |_|  |______|______| |_|  |_/_/    \_\_| \_/_/    \_\_____|______|_|  \_\
 `;
-console.log(title);
+console.table(title);
 
 runEmployeeManager = () => {
   inquirer
@@ -110,15 +107,13 @@ addEmployee = () => {
       let first = data.employeeFirstName;
       let last = data.employeeLastName;
       db.query(
-        `INSERT INTO employee (id, first_name, last_name, role_id, manager_id) VALUES = ?`,
+        `INSERT INTO employee
+        (id,first_name, last_name, role_id, manager_id)
+            SET = ?`,
         id,
-
         first,
-
         last,
-
         roleId,
-
         managerId
       );
       console.log(
@@ -134,7 +129,7 @@ updateRole = () => {
       {
         type: "list",
         message: "Which employee's role do you want to update?",
-        choice: db.query("SOMESTUFF HERE!!"),
+        choice: ["April", "David"],
         name: "updatedRole",
       },
 
